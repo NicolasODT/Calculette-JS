@@ -20,6 +20,9 @@ function keyPress(key) {
   } else if (key === "Escape" || key === "c" || key === "C") {
     // Si la touche est Échap, c ou C on remet le display à NULL
     display.value = "";
+  } else if (key === "Backspace" || key === "Delete") {
+    display.value = display.value.slice(0, -1);
+    // slice permet de couper une partie de la chaine de caractère pour la remplacer par une autre on met 0 et -1 pour dire qu'on veut tout sauf le dernier caractère
   }
 }
 // fonction qui permet de gérer les touches du clavier
