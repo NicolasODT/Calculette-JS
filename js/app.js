@@ -4,6 +4,29 @@ const operations = document.querySelectorAll(".operation");
 const clear = document.getElementById("clear");
 const egal = document.getElementById("egal");
 
+// display.value permet de récupérer la valeur du display(input)
+
+// fonction qui permet de gérer les touches du clavier
+function keyPress(key) {
+  if (key >= "0" && key <= "9") {
+    // Si la touche est un nombre
+    display.value += key;
+  } else if (key === "+" || key === "-" || key === "*" || key === "/") {
+    // Si la touche est une opération
+    display.value += key;
+  } else if (key === "Enter" || key === "=") {
+    // Si la touche est Entrée ou égal
+    display.value = eval(display.value);
+  } else if (key === "Escape" || key === "c" || key === "C") {
+    // Si la touche est Échap, c ou C
+    display.value = "";
+  }
+}
+// fonction qui permet de gérer les touches du clavier
+document.addEventListener("keyup", (e) => {
+  keyPress(e.key);
+});
+
 // si nombre est cliqué, afficher la valeur du nombre dans le display(input)
 nombres.forEach((nombre) => {
   nombre.addEventListener("click", () => {
