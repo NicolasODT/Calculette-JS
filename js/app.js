@@ -18,16 +18,16 @@ function keyPress(key) {
     // Si la touche est Entrée ou égal
     display.value = eval(display.value);
   } else if (key === "Escape" || key === "c" || key === "C") {
-    // Si la touche est Échap, c ou C
+    // Si la touche est Échap, c ou C on remet le display à NULL
     display.value = "";
   }
 }
 // fonction qui permet de gérer les touches du clavier
 document.addEventListener("keyup", (e) => {
-  keyPress(e.key);
+  keyPress(e.key); // e.key permet de récupérer la touche du clavier qui a été pressée
 });
 
-// si nombre est cliqué, afficher la valeur du nombre dans le display(input)
+// si un nombre est cliqué, afficher la valeur du nombre dans le display(input)
 nombres.forEach((nombre) => {
   nombre.addEventListener("click", () => {
     display.value += nombre.value; // value permet de récupérer la valeur de l'élément
